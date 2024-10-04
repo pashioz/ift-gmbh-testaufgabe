@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import DogBreedSelector from './components/dog-breed-selector/DogBreedSelector';
+import BreedProvider from './providers/BreedProvider'
+import BreedSelector from './components/breed-selector/BreedSelector'
+import FavoritesGallery from './components/favorites-gallery/FavoritesGallery'
 import Icon from './components/icon/Icon'
+import SubBreedGallery from './components/sub-breed-gallery/SubBreedGallery';
 
 import './App.scss'
 
 function App() {
-  const [breeds, setBreeds] = useState([])
+  const [breeds, setBreeds] = useState(undefined)
 
   useEffect(() => {
     axios.get('https://dog.ceo/api/breeds/list/all')
@@ -29,25 +32,20 @@ function App() {
   }, [])
 
   return (
-    <main className="app">
-      <div>
-        <h1>Testaufgabe</h1>
-      </div>
+    <BreedProvider apiData={breeds}>
+      <main className="app">
+        <div>
+          <h1>Testaufgabe</h1>
+        </div>
 
-      <div>
-        <h2>Auswahl Hunderasse</h2>
-        <DogBreedSelector data={breeds} />
-      </div>
+        <BreedSelector />
 
-      <div>
-        <h2>Gallerie Subrassen</h2>
-      </div>
+        <SubBreedGallery />
 
-      <div>
-        <h2>Gallerie Favoriten</h2>
-      </div>
+        <FavoritesGallery />
+      </main>
 
-      <div>
+      {/*<div>
         <p>test text</p>
         <Icon icon="ArrowDown" />
         <Icon icon="CheckboxDone" />
@@ -55,8 +53,8 @@ function App() {
         <Icon icon="Delete" />
         <Icon icon="FavoriteFill" />
         <Icon icon="FavoriteOutline" />
-      </div>
-    </main>
+      </div>*/}
+    </BreedProvider>
   )
 }
 

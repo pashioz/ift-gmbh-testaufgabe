@@ -6,17 +6,15 @@ import useOutsideClick from '../../hooks/useOutsideClick'
 import './Dropdown.scss'
 
 
-const Dropdown = ({id, title = 'Select', data = {}, selectedId, onSelect }) => {
+const Dropdown = ({id, title = 'Select', data = [], selectedId, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedItem, setSelectedItem] = useState(selectedId ? data?.find((item) => item.id === selectedId): undefined);
 
-  // if(selectedId) {
-  //   const item = data?.find((item) => item.id === selectedId)
-  // }
-
   const handleChange = (item) => {
     setSelectedItem(item)
-    onSelect && onSelect(item.id)
+    if(onSelect) {
+      onSelect(item)
+    }
     setIsOpen(false)
   };
 

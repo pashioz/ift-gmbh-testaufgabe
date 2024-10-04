@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.sub-breed-gallery {
+
+  .sub-breed-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ddd;
+
+    .option {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: .25rem;
+      color: $color-blue;
+      padding: .25rem .75rem;
+      align-items: center;
+    }
+  }
+}
