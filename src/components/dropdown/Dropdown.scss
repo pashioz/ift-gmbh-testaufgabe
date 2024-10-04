@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+
+  &-selector {
+    align-items: center;
+    background-color: $color-blue;
+    border-radius: 0.5rem;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    font-weight: 600;
+    gap: 1rem;
+    justify-content: space-between;
+    min-width: 20rem;
+    padding: .5rem 1.5rem;
+  }
+
+  &-menu {
+    position: absolute;
+    background-color: $color-light-gray;
+    width: 100%;
+
+    &-list {
+      max-height: 20rem;
+      overflow-y: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      &-item {
+        border-left: solid transparent .25rem;
+        color: $color-blue;
+        cursor: pointer;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+        padding: 0 1.25rem;
+        text-align: left;
+      }
+
+      .selected {
+        border-left: solid $color-blue .25rem;
+      }
+    }
+  }
+}
