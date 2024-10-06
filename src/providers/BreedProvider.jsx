@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect, createContext } from 'react';
+import axios from 'axios';
 
 const BreedContext = createContext();
 
@@ -24,6 +25,13 @@ const BreedProvider = ({apiData, children}) => {
     localStorage.setItem('breeds', JSON.stringify(breeds))
 
     console.log('BreedProvider selectedBreed', selectedBreed)
+    // selectedBreed?.subbreeds.map(subbreed => {
+    //   if(!subbreed.imageUrl) {
+    //     getImageUrl(selectedBreed).then((imageUrl) => {
+    //       console.log(imageUrl)
+    //     })
+    //   }
+    // })
     localStorage.setItem('selectedBreed', JSON.stringify(selectedBreed))
 
     console.log('BreedProvider favorites', favorites)
