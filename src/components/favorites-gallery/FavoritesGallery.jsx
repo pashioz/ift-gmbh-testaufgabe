@@ -8,7 +8,7 @@ import Image from '../image/Image.jsx';
 const FavoritesGallery = () => {
   const {selectedBreed, favorites, removeFavorite} = useBreeds()
 
-  if (favorites.length === 0) {
+  if (!favorites?.length) {
     return <></>
   }
 
@@ -20,7 +20,7 @@ const FavoritesGallery = () => {
 
       <div className="favorites">
         {
-          favorites.map(favorite => {
+          favorites?.map(favorite => {
             return (
               <div key={favorite.id} className="favorite">
                 <div className="favorite-meta">

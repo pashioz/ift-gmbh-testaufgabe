@@ -2,7 +2,7 @@ import { useContext, useState, useEffect, createContext } from 'react';
 
 const BreedContext = createContext();
 
-const BreedProvider = ({apiData, children}) => {
+const BreedProvider = ({initialData, children}) => {
   const [breeds, setBreeds] = useState(undefined);
   const [selectedBreed, setSelectedBreed] = useState(undefined);
   const [favorites, setFavorites] = useState([]);
@@ -22,8 +22,10 @@ const BreedProvider = ({apiData, children}) => {
 
   // update the breed data
   useEffect(() => {
-    setBreeds(apiData)
-  }, [apiData])
+    setBreeds(initialData?.breeds)
+    setSelectedBreed(initialData?.selectedBreed)
+    setFavorites(initialData?.favorites)
+  }, [initialData])
 
   /*
    * Update localStorage whenever breed provider data is updated,
