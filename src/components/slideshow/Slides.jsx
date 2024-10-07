@@ -4,7 +4,6 @@ import Image from '../image/Image.jsx';
 import { useBreeds } from '../../providers/BreedProvider.jsx';
 
 
-// const Slides = ({selectedBreed, selectedSubbreeds, slideIndex}) => {
 const Slides = ({selectedBreed, subbreed}) => {
   const {isFavorite, addFavorite, removeFavorite} = useBreeds()
 
@@ -34,7 +33,7 @@ const Slides = ({selectedBreed, subbreed}) => {
               alt={`${selectedBreed.name} (${subbreed.name})`}
               title={`${selectedBreed.name} (${subbreed.name})`}
               width="37.5rem"
-              aspectRatio="6/4"
+              height="25rem"
             />
           </div>
         )

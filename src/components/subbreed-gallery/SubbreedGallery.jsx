@@ -8,7 +8,7 @@ import './SubbreedGallery.scss'
 
 const SubbreedGallery = () => {
   const {selectedBreed} = useBreeds()
-  const [selectedSubbreeds, setSelectedSubbreeds] = useState(selectedBreed?.subbreeds[0] ? [selectedBreed?.subbreeds[0]] : [])
+  const [selectedSubbreeds, setSelectedSubbreeds] = useState([])
 
   useEffect(() => {
     setSelectedSubbreeds(selectedBreed?.subbreeds[0] ? [selectedBreed?.subbreeds[0]] : [])
@@ -40,7 +40,7 @@ const SubbreedGallery = () => {
         <h2>Gallerie Subrassen</h2>
       </div>
 
-      {selectedBreed.subbreeds.length === 0 ? (
+      {selectedBreed?.subbreeds.length === 0 ? (
         <div className="no-subbreeds">
           Diese Hunderasse hat keine Subrassen.
         </div>

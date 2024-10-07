@@ -9,7 +9,6 @@ import Title from './components/topography/Title.jsx'
 
 import './App.scss'
 
-const localStorageBreeds = localStorage.getItem('breeds')
 const localStorageSelectedBreed = localStorage.getItem('selectedBreed')
 const localStorageFavorites = localStorage.getItem('favorites')
 

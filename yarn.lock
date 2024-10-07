@@ -181,6 +181,11 @@
     "@babel/helper-validator-identifier" "^7.25.7"
     to-fast-properties "^2.0.0"
 
+"@createnextapp/async-local-storage@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@createnextapp/async-local-storage/-/async-local-storage-1.0.1.tgz#9766fc15e88471fd4b0eb83079cd785863ca68d2"
+  integrity sha512-9C6WMjpp2qP9HE/R+rZcMt3ilqeXP6QdMhYzw5gy865xb8ZqYVnJbsLY3hK03qxwSIV8i7Vk4jTzCBdeGkRbuw==
+
 "@esbuild/aix-ppc64@0.21.5":
   version "0.21.5"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.21.5.tgz#c7184a326533fcdf1b8ee0733e21c713b975575f"
