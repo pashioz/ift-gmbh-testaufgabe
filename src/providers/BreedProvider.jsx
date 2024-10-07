@@ -16,7 +16,6 @@ const BreedProvider = ({apiData, children}) => {
   }
 
   const removeFavorite = (favorite) => {
-    console.log('removeFavorite', favorite)
     const filtered = favorites.filter(item => item.id !== favorite.id)
     setFavorites(filtered)
   }

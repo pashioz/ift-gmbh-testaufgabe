@@ -41,7 +41,7 @@ const SubbreedGallery = () => {
       </div>
 
       {selectedBreed.subbreeds.length === 0 ? (
-        <div className="hint">
+        <div className="no-subbreeds">
           Diese Hunderasse hat keine Subrassen.
         </div>
       ) : (
@@ -63,10 +63,9 @@ const SubbreedGallery = () => {
               }
             )}
           </div>
-
-          <Slideshow selectedBreed={selectedBreed} selectedSubbreeds={selectedSubbreeds} />
         </div>
       )}
+      <Slideshow selectedBreed={selectedBreed} selectedSubbreeds={selectedSubbreeds} />
     </div>
   )
 }

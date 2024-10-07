@@ -32,6 +32,7 @@ const FavoritesGallery = () => {
                   src={favorite.imageUrl}
                   alt={`${selectedBreed.name} (${favorite.name})`}
                   title={`${selectedBreed.name} (${favorite.name})`}
+                  aspectRatio="6/4"
                 />
               </div>
             )

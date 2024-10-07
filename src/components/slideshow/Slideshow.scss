@@ -7,10 +7,20 @@
   padding: .5rem 0;
 
   &-container {
-    margin: auto;
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    margin: auto;
+    min-width: 37.5rem;
+
+    .no-subbreeds-selected {
+      align-items: center;
+      aspect-ratio: 6/4;
+      background-color: $color-light-gray;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   &-controls {

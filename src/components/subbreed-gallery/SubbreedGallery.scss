@@ -4,8 +4,15 @@
   margin-bottom: 4rem;
   justify-content: center;
 
-  .heading, .hint {
+  .heading {
     text-align: center;
+  }
+
+  .no-subbreeds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
   }
 
   .subbreed-options {

@@ -32,8 +32,17 @@ const Slideshow = ({selectedBreed, selectedSubbreeds}) => {
   return (
     <div className="slideshow">
       <div className="slideshow-container">
-        <Slides selectedBreed={selectedBreed} subbreed={selectedSubbreeds[slideIndex]} />
-        <div className="slideshow-controls" style={{visibility: `${selectedSubbreeds.length === 1 ? 'hidden' : 'visible'}`}}>
+        {
+          selectedSubbreeds.length > 0 ? (
+            <Slides selectedBreed={selectedBreed} subbreed={selectedSubbreeds[slideIndex]} />
+          ): (
+            <div className="no-subbreeds-selected">
+              <div>Wählen Sie eine Subrasse</div>
+            </div>
+          )
+        }
+
+        <div className="slideshow-controls" style={{visibility: `${selectedSubbreeds.length <= 1 ? 'hidden' : 'visible'}`}}>
           <div className="controls">
             <a className="prev" onClick={() => prev()}>Vorheriges Bild</a>
             <a className="next" onClick={() => next()}>Nächstes Bild</a>
