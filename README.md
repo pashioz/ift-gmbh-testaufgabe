@@ -20,7 +20,7 @@ Install the dependencies
 
 Start the application.
 
-    npm run vite
+    npm run dev
     
     # or
     
