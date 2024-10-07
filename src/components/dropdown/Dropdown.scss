@@ -25,6 +25,7 @@
     position: absolute;
     background-color: $color-light-gray;
     width: 100%;
+    z-index: 100;
 
     &-list {
       max-height: 20rem;

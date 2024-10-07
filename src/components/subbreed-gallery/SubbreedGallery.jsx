@@ -1,25 +1,22 @@
+import { useEffect, useState } from 'react';
+
+import Slideshow from '../slideshow/Slideshow.jsx';
+import Icon from '../icon/Icon';
 import { useBreeds } from '../../providers/BreedProvider'
 
 import './SubbreedGallery.scss'
-import Icon from '../icon/Icon.jsx';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const SubbreedGallery = () => {
   const {selectedBreed, setSelectedBreed, favorites, setFavorites} = useBreeds()
   const [selectedSubbreeds, setSelectedSubbreeds] = useState(selectedBreed?.subbreeds[0] ? [selectedBreed?.subbreeds[0]] : [])
 
-  if (!selectedBreed) {
-    return <></>
-  }
-
-  /*
-   * When the selected breed changes, update the imageUrl for each subbreed
-   * and reset the selected subbreeds accordingly
-   */
   useEffect(() => {
     setSelectedSubbreeds(selectedBreed?.subbreeds[0] ? [selectedBreed?.subbreeds[0]] : [])
   }, [selectedBreed])
+
+  if (!selectedBreed) {
+    return <></>
+  }
 
   const toggleSelection = (subbreed) => {
     const selected = [...selectedSubbreeds]
@@ -32,20 +29,24 @@ const SubbreedGallery = () => {
     }
   }
 
-  const isSelected = (subbreed) => {
-    return selectedSubbreeds.includes(subbreed)
+  const isSelected = (item) => {
+    const found = selectedSubbreeds.find(subbreed => subbreed.id === item.id)
+    return !!found
   }
 
   return (
-    <div className="sub-breed-gallery">
-      <h2>Gallerie Subrassen</h2>
+    <div className="subbreed-gallery">
+      <div className="heading">
+        <h2>Gallerie Subrassen</h2>
+      </div>
+
       {selectedBreed.subbreeds.length === 0 ? (
         <div>
           Diese Hunderasse hat keine Subrassen.
         </div>
       ) : (
         <div>
-          <div className="sub-breed-options">
+          <div className="subbreed-options">
             {selectedBreed.subbreeds.map(subbreed => {
                 return (
                   <div key={subbreed.id} className="option" onClick={() => toggleSelection(subbreed)}>
@@ -56,21 +57,16 @@ const SubbreedGallery = () => {
                         <Icon icon="CheckboxOpen" fill="#004177" />
                       )
                     }
-                    {subbreed.id} {subbreed.name}
+                    {subbreed.name}
                   </div>
                 )
               }
             )}
           </div>
-          <div>
-            Images
-          </div>
+
+          <Slideshow selectedBreed={selectedBreed} selectedSubbreeds={selectedSubbreeds} />
         </div>
       )}
-      <div>
-
-      </div>
-      {selectedBreed.name}
     </div>
   )
 }

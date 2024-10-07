@@ -1,0 +1,12 @@
+.image {
+  width: 37.5rem;
+  height: 25rem;
+  background-color: green;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}

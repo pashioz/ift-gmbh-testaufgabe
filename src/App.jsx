@@ -5,16 +5,10 @@ import BreedProvider from './providers/BreedProvider'
 import BreedSelector from './components/breed-selector/BreedSelector'
 import FavoritesGallery from './components/favorites-gallery/FavoritesGallery'
 import SubbreedGallery from './components/subbreed-gallery/SubbreedGallery';
+import Title from './components/topography/Title.jsx';
 
 import './App.scss'
 
-const getImageUrl = async (selectedBreed) => {
-  return await axios.get('https://dog.ceo/api/breed/hound/afghan/images/random')
-    .then(response => {
-      console.log(response)
-      return response.data.message
-    })
-}
 
 function App() {
   const [breeds, setBreeds] = useState(undefined)
@@ -28,11 +22,11 @@ function App() {
         * this will make it easier work with by being able to reference
         * properties.
         *
-        * The sub-breed imageUrl is not fetched at this point
+        * Due the response structure of the supplied API,
+        * the subbreed imageUrl is not fetched at this point
         * that will be done later if and when the user actually
-        * selects a particular sub-breed (to facilitate a faster
-        * initial load and less API calls due the response structure
-        * of the supplied API).
+        * selects a particular breed (to facilitate a faster
+        * initial load and less API calls).
         */
         const respBreeds = response.data.message
         const arr = []
@@ -50,7 +44,7 @@ function App() {
             subbreeds.push({
               id: j + 1, // id not zero
               name: respBreeds[name][k],
-              imageUrl: getImageUrl(respBreeds[name][k]).then(imageUrl => imageUrl)
+              imageUrl: null
             });
             j++
             k++
@@ -65,15 +59,14 @@ function App() {
         }
 
         setBreeds(arr)
-      });
+      })
+      .catch(err => console.log(err));
   }, [])
 
   return (
     <BreedProvider apiData={breeds}>
       <main className="app">
-        <div>
-          <h1>Testaufgabe</h1>
-        </div>
+        <Title title="Testaufgabe" />
 
         <BreedSelector />
 

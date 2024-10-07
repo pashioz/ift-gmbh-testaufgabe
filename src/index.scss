@@ -15,9 +15,16 @@
 }
 
 // GLOBAL STYLES
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
 html {
   overflow-y: scroll;
 }
+
+* {box-sizing:border-box}
 
 h1, .h1,
 h2, .h2 {
@@ -29,10 +36,13 @@ h2, .h2 {
 
 h1, .h1 {
   font-size: 6rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 h2, .h2 {
   font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .transform-180 {

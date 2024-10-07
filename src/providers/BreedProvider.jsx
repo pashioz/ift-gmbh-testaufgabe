@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect, createContext } from 'react';
-import axios from 'axios';
 
 const BreedContext = createContext();
 
@@ -15,38 +14,20 @@ const BreedProvider = ({apiData, children}) => {
 
   // update the breed data
   useEffect(() => {
-    console.log('BreedProvider apiData', apiData)
     setBreeds(apiData)
   }, [apiData])
 
-  // update localStorage whenever breed data is updated
+  /*
+   * Update localStorage whenever breed provider data is updated,
+   * this is only to facilitate starting off from where the user left the
+   * session
+   */
   useEffect(() => {
-    console.log('BreedProvider breeds', breeds)
     localStorage.setItem('breeds', JSON.stringify(breeds))
-
-    console.log('BreedProvider selectedBreed', selectedBreed)
-    // selectedBreed?.subbreeds.map(subbreed => {
-    //   if(!subbreed.imageUrl) {
-    //     getImageUrl(selectedBreed).then((imageUrl) => {
-    //       console.log(imageUrl)
-    //     })
-    //   }
-    // })
     localStorage.setItem('selectedBreed', JSON.stringify(selectedBreed))
-
-    console.log('BreedProvider favorites', favorites)
+    // console.log('selectedBreed', selectedBreed)
     localStorage.setItem('favorites', JSON.stringify(favorites))
   }, [breeds, selectedBreed, favorites])
-
-  // useEffect(() => {
-  //   console.log('BreedProvider selectedBreed', selectedBreed)
-  //   localStorage.setItem('selectedBreed', JSON.stringify(selectedBreed))
-  // }, [selectedBreed])
-  //
-  // useEffect(() => {
-  //   console.log('BreedProvider favorites', favorites)
-  //   localStorage.setItem('favorites', JSON.stringify(favorites))
-  // }, [favorites])
 
   return (
     <BreedContext.Provider value={value}>

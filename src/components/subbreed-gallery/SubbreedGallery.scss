@@ -1,22 +1,27 @@
 @import '../../styles/variables';
 
-.sub-breed-gallery {
+.subbreed-gallery {
+  margin-bottom: 4rem;
+  justify-content: center;
 
-  .sub-breed-options {
+  .heading {
+    text-align: center;
+  }
+
+  .subbreed-options {
+    align-items: center;
     display: flex;
     gap: 1rem;
     justify-content: center;
-    align-items: center;
-
-    background-color: #ddd;
 
     .option {
+      align-items: center;
+      color: $color-blue;
+      cursor: pointer;
       display: flex;
       flex-wrap: nowrap;
       gap: .25rem;
-      color: $color-blue;
       padding: .25rem .75rem;
-      align-items: center;
     }
   }
 }

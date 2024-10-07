@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.slideshow {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: .5rem 0;
+
+  &-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  &-slides {
+    .slide {
+      display: none;
+      position: relative;
+    }
+  }
+
+  &-controls {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+
+    .controls {
+      display: flex;
+      justify-content: stretch;
+      gap: 1rem;
+      width: 100%;
+    }
+  }
+
+  .prev, .next {
+    flex: 1;
+    color: $color-blue;
+    cursor: pointer;
+    transition: 0.6s ease;
+    user-select: none;
+    width: auto;
+    padding: .25rem 1rem;
+    border: solid $color-blue 2px;
+    border-radius: .5rem;
+    background-color: $color-white;
+    text-align: center;
+  }
+
+  //.prev:hover, .next:hover {
+  //  background-color: rgba(0, 0, 0, 0.8);
+  //}
+
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+}
