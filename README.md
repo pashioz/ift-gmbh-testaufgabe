@@ -4,7 +4,7 @@
 
 Clone the repository.
 
-    git@github.com:pashioz/ift-gmbh-testaufgabe.git
+    git clone https://github.com/pashioz/ift-gmbh-testaufgabe.git
 
 Move into the project directory.
 
