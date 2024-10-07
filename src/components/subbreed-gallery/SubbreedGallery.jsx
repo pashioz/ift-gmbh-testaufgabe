@@ -7,7 +7,7 @@ import { useBreeds } from '../../providers/BreedProvider'
 import './SubbreedGallery.scss'
 
 const SubbreedGallery = () => {
-  const {selectedBreed, setSelectedBreed, favorites, setFavorites} = useBreeds()
+  const {selectedBreed} = useBreeds()
   const [selectedSubbreeds, setSelectedSubbreeds] = useState(selectedBreed?.subbreeds[0] ? [selectedBreed?.subbreeds[0]] : [])
 
   useEffect(() => {

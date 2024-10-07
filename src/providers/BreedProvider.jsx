@@ -6,10 +6,18 @@ const BreedProvider = ({apiData, children}) => {
   const [breeds, setBreeds] = useState(undefined);
   const [selectedBreed, setSelectedBreed] = useState(undefined);
   const [favorites, setFavorites] = useState([]);
-  const value = {
-    breeds, setBreeds,
-    selectedBreed, setSelectedBreed,
-    favorites, setFavorites
+
+  const isFavorite = (favorite) => {
+    const found = favorites.find(fav => fav.id === favorite.id)
+    return !!found
+  }
+  const addFavorite = (favorite) => {
+    setFavorites([...favorites, favorite])
+  }
+
+  const removeFavorite = (favorite) => {
+    const filtered = favorites.filter(item => item.id !== favorite.id)
+    setFavorites(filtered)
   }
 
   // update the breed data
@@ -25,9 +33,14 @@ const BreedProvider = ({apiData, children}) => {
   useEffect(() => {
     localStorage.setItem('breeds', JSON.stringify(breeds))
     localStorage.setItem('selectedBreed', JSON.stringify(selectedBreed))
-    // console.log('selectedBreed', selectedBreed)
     localStorage.setItem('favorites', JSON.stringify(favorites))
   }, [breeds, selectedBreed, favorites])
+
+  const value = {
+    breeds, setBreeds,
+    selectedBreed, setSelectedBreed,
+    favorites, setFavorites, isFavorite, addFavorite, removeFavorite
+  }
 
   return (
     <BreedContext.Provider value={value}>

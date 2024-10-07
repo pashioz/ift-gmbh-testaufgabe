@@ -1,7 +1,9 @@
+@import '../../styles/variables';
+
 .image {
   width: 37.5rem;
   height: 25rem;
-  background-color: green;
+  background-color: $color-light-gray;
 
   img {
     object-fit: cover;

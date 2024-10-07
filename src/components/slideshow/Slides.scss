@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+
+.slides {
+  .slide {
+    display: none;
+    position: relative;
+
+    &-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: $color-white;
+      font-weight: bold;
+      padding: 1rem;
+      position: absolute;
+      right: 0;
+      text-shadow: 0 0 4px #000;
+    }
+
+    .favorite {
+      cursor: pointer;
+    }
+  }
+
+  .fade {
+     animation-name: fade;
+     animation-duration: 1.5s;
+   }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+}

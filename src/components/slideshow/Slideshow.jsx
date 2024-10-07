@@ -1,9 +1,10 @@
-import './Slideshow.scss'
-import Image from '../image/Image.jsx';
+import Slides from './Slides.jsx';
+import { useBreeds } from '../../providers/BreedProvider.jsx';
 import { useEffect, useState } from 'react';
 
+import './Slideshow.scss'
+
 const Slideshow = ({selectedBreed, selectedSubbreeds}) => {
-  const [slides, setSlides] = useState([])
   const [slideIndex, setSlideIndex] = useState(0)
 
   useEffect(() => {
@@ -12,7 +13,7 @@ const Slideshow = ({selectedBreed, selectedSubbreeds}) => {
 
 
   const next = () => {
-    if(slideIndex + 1 === selectedSubbreeds.length) {
+    if (slideIndex + 1 === selectedSubbreeds.length) {
       setSlideIndex(0)
       return
     }
@@ -21,7 +22,7 @@ const Slideshow = ({selectedBreed, selectedSubbreeds}) => {
   }
 
   const prev = () => {
-    if(slideIndex - 1 < 0) {
+    if (slideIndex - 1 < 0) {
       setSlideIndex(selectedSubbreeds.length - 1)
       return
     }
@@ -32,23 +33,8 @@ const Slideshow = ({selectedBreed, selectedSubbreeds}) => {
   return (
     <div className="slideshow">
       <div className="slideshow-container">
-        <div className="slideshow-slides">
-          {
-            selectedSubbreeds.map((subbreed, index) => {
-              const display = (index === slideIndex) ? 'block' : 'none'
-
-              return (
-                <div key={index} className="slide fade" style={{display: `${display}`}}>
-                  <Image
-                    src={subbreed.imageUrl}
-                    alt={`${selectedBreed.name} (${subbreed.name})`}
-                    title={`${selectedBreed.name} (${subbreed.name})`}
-                  />
-                </div>
-              )
-            })
-          }
-        </div>
+        {/*<Slides selectedBreed={selectedBreed} selectedSubbreeds={selectedSubbreeds} slideIndex={slideIndex} />*/}
+        <Slides selectedBreed={selectedBreed} subbreed={selectedSubbreeds[slideIndex]} />
         {
           (selectedSubbreeds.length > 1) && (
             <div className="slideshow-controls">
