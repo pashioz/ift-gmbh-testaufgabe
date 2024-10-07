@@ -1,5 +1,35 @@
+@import '../../styles/variables';
+
 .favorites-gallery {
   margin-bottom: 4rem;
 
-  background-color: red;
+  .heading {
+    text-align: center;
+  }
+
+  .favorites {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    gap: 1rem;
+
+    .favorite {
+      position: relative;
+
+      &-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: $color-white;
+        font-weight: bold;
+        padding: 1rem;
+        position: absolute;
+        right: 0;
+        text-shadow: 0 0 4px #000;
+      }
+
+      .delete {
+        cursor: pointer;
+      }
+    }
+  }
 }

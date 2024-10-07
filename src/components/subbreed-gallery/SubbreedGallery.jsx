@@ -41,7 +41,7 @@ const SubbreedGallery = () => {
       </div>
 
       {selectedBreed.subbreeds.length === 0 ? (
-        <div>
+        <div className="hint">
           Diese Hunderasse hat keine Subrassen.
         </div>
       ) : (

@@ -1,10 +1,10 @@
 import './Image.scss'
 
 
-const Image = ({ src, alt, title}) => {
+const Image = ({src, alt, title, width = '100%', height = '100%', aspectRatio = '16/9'}) => {
 
   return (
-    <div className="image">
+    <div className="image" style={{width: width, height: height, aspectRatio: aspectRatio}}>
       <img
         src={src}
         alt={alt}

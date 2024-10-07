@@ -1,5 +1,4 @@
 import Slides from './Slides.jsx';
-import { useBreeds } from '../../providers/BreedProvider.jsx';
 import { useEffect, useState } from 'react';
 
 import './Slideshow.scss'
@@ -33,20 +32,14 @@ const Slideshow = ({selectedBreed, selectedSubbreeds}) => {
   return (
     <div className="slideshow">
       <div className="slideshow-container">
-        {/*<Slides selectedBreed={selectedBreed} selectedSubbreeds={selectedSubbreeds} slideIndex={slideIndex} />*/}
         <Slides selectedBreed={selectedBreed} subbreed={selectedSubbreeds[slideIndex]} />
-        {
-          (selectedSubbreeds.length > 1) && (
-            <div className="slideshow-controls">
-              <div className="controls">
-                <a className="prev" onClick={() => prev()}>Vorheriges Bild</a>
-                <a className="next" onClick={() => next()}>Nächstes Bild</a>
-              </div>
-            </div>
-          )
-        }
+        <div className="slideshow-controls" style={{visibility: `${selectedSubbreeds.length === 1 ? 'hidden' : 'visible'}`}}>
+          <div className="controls">
+            <a className="prev" onClick={() => prev()}>Vorheriges Bild</a>
+            <a className="next" onClick={() => next()}>Nächstes Bild</a>
+          </div>
+        </div>
       </div>
-
     </div>
   )
 }
